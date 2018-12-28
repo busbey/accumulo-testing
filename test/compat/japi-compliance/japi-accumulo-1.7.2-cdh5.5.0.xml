@@ -1,0 +1,64 @@
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<version>
+  1.7.2-cdh5.5.0
+</version>
+
+<!--
+  Add to settings.xml:
+
+    <profile>
+      <id>cloudera</id>
+      <repositories>
+        <repository>
+          <id>cloudera-releases</id>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <url>https://repository.cloudera.com/cloudera/cloudera-release-repo</url>
+        </repository>
+      </repositories>
+    </profile>
+
+  Then you can download these with maven:
+
+  mvn dependency:get -DgroupId=org.apache.accumulo -DartifactId=accumulo-minicluster -Dversion=1.7.2-cdh5.5.0 -Pcloudera
+
+  And then point to your local repository here, e.g.
+
+  /Users/example/.m2/repository/org/apache/accumulo/accumulo-core/1.7.2-cdh5.5.0/accumulo-core-1.7.2-cdh5.5.0.jar
+  /Users/example/.m2/repository/org/apache/accumulo/accumulo-minicluster/1.7.2-cdh5.5.0/accumulo-minicluster-1.7.2-cdh5.5.0.jar
+
+  -->
+<archives>
+  /Users/busbey/.m2/repository/org/apache/accumulo/accumulo-core/1.7.2-cdh5.5.0/accumulo-core-1.7.2-cdh5.5.0.jar
+  /Users/busbey/.m2/repository/org/apache/accumulo/accumulo-minicluster/1.7.2-cdh5.5.0/accumulo-minicluster-1.7.2-cdh5.5.0.jar
+</archives>
+
+<skip_packages>
+  org.apache.accumulo.core.client.impl
+  org.apache.accumulo.core.client.lexicoders.impl
+  org.apache.accumulo.core.client.mapreduce.lib.impl
+  org.apache.accumulo.core.data.thrift
+  org.apache.accumulo.minicluster.impl
+</skip_packages>
+
+<packages>
+  org.apache.accumulo.core.client
+  org.apache.accumulo.core.data
+  org.apache.accumulo.minicluster
+</packages>
